@@ -79,7 +79,7 @@ extern "C" void EMSCRIPTEN_KEEPALIVE paintLCD(uint32_t *dest)
     }
 }
 
-void step()
+void step(void*)
 {
     int i = 1000;
     while(i--)
@@ -134,11 +134,11 @@ void emscripten_loop(bool reset)
 
     exiting = false;
 
-    emscripten_set_main_loop(step, 0, 1);
+    emscripten_set_main_loop_arg(step, nullptr, 0, 1);
     return;
 }
 
-int main()
+int EMSCRIPTEN_KEEPALIVE main()
 {
     path_boot1 = "boot1.img";
     path_flash = "flash.img";
