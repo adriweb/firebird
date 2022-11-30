@@ -187,6 +187,8 @@ static void emit_call(const void *target)
 	emit(0xd63f02a0); // blr x21
 }
 
+#include <unistd.h>
+
 bool translate_init()
 {
 	if(translate_buffer)

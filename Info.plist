@@ -42,7 +42,7 @@
 		</dict>
 	</dict>
 	<key>CFBundleIdentifier</key>
-    <string>com.firebird.firebird-emu</string>
+	<string>com.adriweb.firebird-emu</string>
 	<key>CFBundleName</key>
 	<string>Firebird</string>
 	<key>CFBundlePackageType</key>
