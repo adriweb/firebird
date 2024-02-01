@@ -104,7 +104,7 @@ int main(int argc, char **argv)
     QCoreApplication::setApplicationName(QStringLiteral("firebird-emu"));
 
     // Needed for settings migration
-    qRegisterMetaTypeStreamOperators<KitModel>();
+    //qRegisterMetaTypeStreamOperators<KitModel>();
     qRegisterMetaType<KitModel>();
 
     migrateSettings();

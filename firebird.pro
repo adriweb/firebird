@@ -2,7 +2,7 @@ lessThan(QT_MAJOR_VERSION, 5): error("You need at least Qt 5.9 to build Firebird
 equals(QT_MAJOR_VERSION, 5):lessThan(QT_MINOR_VERSION, 9): error("You need at least Qt 5.9 to build Firebird!")
 
 # Version
-DEFINES += FB_VERSION=1.6
+DEFINES += FB_VERSION=1.6-dev
 
 # JIT. Set to true, false or auto (default)
 isEmpty(TRANSLATION_ENABLED): TRANSLATION_ENABLED = auto
@@ -40,8 +40,8 @@ unix: !android {
     INSTALLS += target desktop icon sendtool
 }
 
-QMAKE_CFLAGS += -g -std=gnu11 -Wall -Wextra
-QMAKE_CXXFLAGS += -g -Wall -Wextra -D QT_NO_CAST_FROM_ASCII
+QMAKE_CFLAGS += -g -std=gnu11 -Wall -Wextra -arch arm64
+QMAKE_CXXFLAGS += -g -Wall -Wextra -D QT_NO_CAST_FROM_ASCII -arch arm64
 LIBS += -lz
 
 # Override bad default options to enable better optimizations
@@ -92,13 +92,13 @@ ios {
 }
 
 # QMAKE_HOST can be e.g. armv7hl, but QT_ARCH would be arm in such cases
-FB_ARCH = $$QT_ARCH
+#FB_ARCH = $$QT_ARCH
+FB_ARCH = aarch64
 
 # arm64, arm64-v8a
 contains(FB_ARCH, "arm64.*") {
     FB_ARCH = aarch64
 }
-
 # armv7l, armeabi-v7a
 contains(FB_ARCH, "arm.*") {
     FB_ARCH = arm
